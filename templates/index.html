@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        {% load static %}
+        <script src="{% static 'js/main.js' %}"></script>
+        <!-- This is how to include a static file -->
+        <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css"/>
+        <title>Multiple Upload</title>
+        <!-- <style>
+                      
+                    </style> -->
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="upload">
+                <div class="list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Link</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for album in album_list %}
+                                <tr>
+                                    <td>{{ album.title }}</td>
+                                    <td>
+                                        <a href="{% url 'view_album' album.id %}">View</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'view_album' album.id %}delete">Delete</a>
+                                    </td>
+                                </tr>
+                            </td>
+                        </tbody>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html></div><div class="upload-wrapper">
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% if errors%}
+    <p>Error while uploading file {{error_file}}</p>
+    {% for error in errors%}
+        <li>{{error}}</li>
+    {%endfor%}
+    
+    {% endif%}
+    <input name="title" placeholder="Enter Title" required/>
+    <br/><br/>
+    <input type="file" name="files" multiple id="upload-input" class="visually-hidden" accept="image/*" required/>
+
+    <button type="submit" href="/">Upload</button>
+    <!-- {{ title }} -->
+</form>
+<div class="upload-area">
+    <p class="upload-area-text">
+        Select images or
+        <span>browse.</span>
+    </p>
+</div>
+<div class="upload-img"></div>
+<div class="upload-info"></div></div></div></div><!-- <div>
+                  <h3 style="color: black">
+                    {% for url in new_url %}
+                    <img src="{{ url }}" width="150" height="140" alt="{{ url }}" />
+                    {% endfor %}
+                  </h3>
+                </div> --><!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> --></body></html>
+
