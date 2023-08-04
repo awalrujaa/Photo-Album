@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+body {
+  min-height: 100vh;
+  background: black;
+}
+
+img[src=""] {
+  display: none;
+}
+
+i[src=""] {
+  display: none;
+}
+
+p {
+  color: green;
+}
+
+#multiple-image-preview {
+  display: flex;
+}
+#multiple-image-preview img {
+  width: 85px;
+  height: 85px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  opacity: 85%;
+}

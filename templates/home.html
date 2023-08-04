@@ -1,0 +1,7 @@
+{% extends 'base.html' %} {% block title %}Home Page {%endblock %}
+ {%block body%} {% load static %}
+<p>Home Page</p>
+<form action="{% url 'app:AddTitleView' %}">
+  <button type="submit">Click me</button>
+</form>
+{% endblock %}

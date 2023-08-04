@@ -1,0 +1,66 @@
+{% extends 'base.html' %} {%block title%} Home Page {%endblock%} {%block body%}
+<!-- {% load widget_tweaks %} -->
+{% load static %}
+
+<div
+  class="container"
+  style="
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    margin-top: 50px;
+  "
+>
+  <h3 style="text-align: center; margin-bottom: 20px">Photo Album</h3>
+  <form
+    method="post"
+    enctype="multipart/form-data"
+    style="display: block; margin-bottom: 10px"
+  >
+    <div class="form-group row">
+      {% csrf_token %}
+      <label for="title" class="col-sm-2 col-form-label">Title</label>
+
+      <div class="col-sm-10">
+        <input
+          type="text"
+          name="title"
+          maxlength="200"
+          class="form-control"
+          placeholder="Title"
+          required=""
+          id="id_title"
+        />
+      </div>
+    </div>
+    <br />
+    <div class="form-group row">
+      <label for="images" class="col-sm-2 col-form-label">Images</label>
+      <div class="col-sm-10">
+        <input
+          type="file"
+          name="images"
+          accept="image/*"
+          class="form-control"
+          required=""
+          id="id_images"
+          multiple
+          onchange="preview(event)"
+        />
+      </div>
+    </div>
+    <div class="galeria"></div>
+    <!-- <img
+      id="frame"
+      src=""
+      style="width: 80px; height: 50px; border-radius: 7%"
+    /> -->
+    <br />
+
+    <div style="text-align: center">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+{%endblock %}
